@@ -1,0 +1,35 @@
+<html>
+    <body>
+
+    {% include "barra.html" %}
+    <H2 style="color: purple">
+    Hola esta es la primera plantilla
+    </H2>
+{# esta es una etiqueta de comentario #}
+{% comment %}
+esta es la etiqueta para el comentario multilinea
+{% endcomment %}
+    {% if nombre_persona == 'Maria' %}
+        <p>El nombre de la persona Maria existe en la variable</p>
+   
+    {% else %}
+    <p>El nombre de la persona no esta</p>
+
+    {% endif %}
+
+    <p>El nombre de el fulanito es: {{nombre_persona.upper}} {{apellido_persona}}</p>
+    <p>Este es el dia y hra actuales: {{momento_actual.day}}/{{momento_actual.month}}/{{momento_actual.year}}</p>
+    <p><strong>Temas del curso:</strong></p>
+    <p>
+        <ul>
+        {% if temas %}   
+            {% for elTema in temas %}
+            <li>{{elTema|first|lower}}</li>
+            {% endfor %}
+        {% else %}
+            <p>No hay informacion para mostrar</p>
+        {% endif %}
+        </ul>
+    </p>
+    </body>
+    </html>
